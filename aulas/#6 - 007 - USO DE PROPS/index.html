@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React - PRIMEIRA EXPERIÊNCIA COM REACTJS E JSX</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type='text/babel'>
+      const root = document.getElementById("root");
+
+      function CompA (props){
+        return(
+          <div>
+              <h1>Olá, {props.nome}!</h1>  
+          </div>
+        )
+      }
+    
+      class Adicao extends React.Component {
+
+        render(){
+
+          return(
+            <div>
+                  <p>o resultado da soma é {this.props.num1} + {this.props.num2} = {this.props.num1 + this.props.num2} </p>  
+            </div>
+          )
+
+        }
+
+      }
+     
+      function App(){
+        return(
+          <div>
+              <CompA nome='Julia'/>  
+              <CompA nome='Paula'/>  
+              <CompA nome='Ricardo'/>  
+              <CompA nome='Annie'/>  
+          </div>
+        )
+      }
+
+      // ReactDOM.render(<App/>, root)
+      ReactDOM.render(<Adicao num1={2} num2={3}/>, root)
+      // \!/ [GOOD] [É interessante passar os props entre chaves!]
+    </script>
+  </body>
+</html>
